@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="0dp"
     >
+
+    <TextView
+        android:id="@+id/Username"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="TextView"
+        android:textSize="20sp" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -19,64 +32,83 @@
         android:layout_marginBottom="24dp"
 
         />
+
     <TableLayout
         android:id="@+id/table"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="80dp"
         android:layout_marginStart="16dp"
+        android:paddingTop="80dp"
+        android:textSize="20sp"
 
-        >
+        app:layout_anchor="@+id/table"
+        app:layout_anchorGravity="center">
+
         <TableRow
             android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-
             style="@style/CardView.Dark"
+            android:layout_width="match_parent"
+
+            android:layout_height="100dp"
             android:layout_marginStart="0dp"
 
             android:layout_marginTop="80dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="20dp"
-            >
+            android:layout_marginBottom="20dp">
+
             <TextView
+                android:padding="8dp"
                 android:text="@string/headers"
-                android:textStyle="bold"
-                android:padding="8dp"/>
+                android:textStyle="bold" />
+
             <TextView
+                android:padding="8dp"
                 android:text="@string/headers"
-                android:textStyle="bold"
-                android:padding="8dp"/>
+                android:textStyle="bold" />
+
             <TextView
+                android:padding="8dp"
                 android:text="@string/headers"
-                android:textStyle="bold"
-                android:padding="8dp"/>
+                android:textStyle="bold" />
+
             <TextView
+                android:padding="8dp"
                 android:text="@string/headers"
-                android:textStyle="bold"
-                android:padding="8dp"/>
+                android:textStyle="bold" />
         </TableRow>
+
         <TableRow
             android:id="@+id/items"
+            style="@style/CardView.Dark"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="100dp">
 
-            style="@style/CardView.Dark">
-            <TextView
-                android:text="@string/item1"
-                android:textStyle="bold"
-                android:padding="8dp"/>
-            <TextView
-                android:text="@string/quantity1"
-                android:textStyle="bold"
-                android:padding="8dp"/>
+            <EditText
+                android:id="@+id/name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/name"
+                android:inputType="text"
+                android:minWidth="100dp"
+                android:minHeight="60dp" />
+
+            <EditText
+                android:id="@+id/quantity_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/amount"
+                android:inputType="number"
+                android:minWidth="100dp"
+                android:minHeight="60dp" />
+
             <Button
                 android:id="@+id/Delete"
                 style="?android:attr/buttonBarButtonStyle"
-                android:text="@string/delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
+                android:text="@string/delete" />
 
             <Button
                 android:id="@+id/Add"
@@ -86,46 +118,19 @@
                 android:text="@string/add" />
         </TableRow>
 
-        <TableRow
-            android:id="@+id/items2"
-            style="@style/CardView.Dark"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/item2">
-            <TextView
-                android:text="@string/item2"
-                android:textStyle="bold"
-                android:padding="8dp"/>
-            <TextView
-                android:text="@string/quantity2"
-                android:textStyle="bold"
-                android:padding="8dp"/>
 
-            <Button
-                android:id="@+id/Delete2"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/delete" />
-
-            <Button
-                android:id="@+id/Add2"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add" />
-        </TableRow>
     </TableLayout>
-    <Button
-        android:id="@+id/AddRow"
+
+    <TextView
         style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/addRow"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="24dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/table_title" />
+
     <Button
         android:id="@+id/SMS"
         style="?android:attr/buttonBarButtonStyle"
@@ -136,6 +141,18 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/logOut"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/table"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="logOut" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -32,6 +32,7 @@
         android:autofillHints="Permission"
         android:ems="10"
         android:layout_marginTop="50dp"
+        android:textSize="20sp"
         android:text="@string/get_messages_whenever_stock_is_empty" />
 
 
@@ -40,7 +41,6 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="0dp"
-
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="240dp"
