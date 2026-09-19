@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     EditText username, password;
-    Button login, register, skip;
+    Button login, register;
     RegisterActivity registerActivity;
 
     @Override
@@ -23,14 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
-        skip = findViewById(R.id.skip);
 
-        skip.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, dataDisplay.class);
-            intent.putExtra("USERNAME", "skipped");
-            startActivity(intent);
-            finish();
-        });
 
         login.setOnClickListener(v -> {
             String user = username.getText().toString().trim();
