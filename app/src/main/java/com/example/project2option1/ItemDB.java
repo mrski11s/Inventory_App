@@ -30,11 +30,11 @@ public class ItemDB extends SQLiteOpenHelper {
 
     //puts new entries into database
     //TODO: add data validation
-    public boolean insert(String item, Number quantity) {
+    public boolean insert(String item, Integer quantity) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, item);
-        contentValues.put(COL_3, quantity.toString());
+        contentValues.put(COL_3, quantity);
 
         long result = db.insert("Items", null, contentValues);
         //verifies that it was successful
@@ -42,20 +42,16 @@ public class ItemDB extends SQLiteOpenHelper {
     }
     //TODO: add data validation
 
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT ID,ITEM, QUANTITY FROM Items", null);
+    }
 
-    public String verifyLogin(String item, Number quantity) {
+    public void deleteRow(int rowId) {
+
         SQLiteDatabase db = this.getWritableDatabase();
-        String[] columns = {COL_2};
-        String selection = "ITEM=? AND QUANTITY=?";
-        String[] selectionArgs = {item, quantity.toString()};
-        Cursor cursor = db.query("Items", columns, selection, selectionArgs, null, null, null);
-        String result = null;
-
-        if (cursor != null && cursor.moveToFirst()) {
-
-            result = cursor.getString(cursor.getColumnIndexOrThrow(COL_2));
-            cursor.close();
-        }
-        return result;
+        String whereClause = "ID = ?";
+        String[] whereArgs = new String[]{String.valueOf(rowId)};
+        db.delete("Items", whereClause, whereArgs);
     }
 }

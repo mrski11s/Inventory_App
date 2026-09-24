@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, dataDisplay.class);
                     intent.putExtra("USERNAME", loggedIn);
                     startActivity(intent);
-                    finish();
+
                 } else {
                     Toast.makeText(MainActivity.this, "Invalid Username", Toast.LENGTH_SHORT).show();
                 }
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, dataDisplay.class);
                     intent.putExtra("USERNAME", user);
                     startActivity(intent);
-                    finish();
+
                 } else {
                     Toast.makeText(MainActivity.this, "Username taken", Toast.LENGTH_SHORT).show();
                 }

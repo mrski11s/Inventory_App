@@ -42,7 +42,6 @@ public class RegisterActivity extends SQLiteOpenHelper {
     }
     //TODO: add data validation
 
-
     public String verifyLogin(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         String[] columns = {COL_2};
@@ -51,7 +50,7 @@ public class RegisterActivity extends SQLiteOpenHelper {
         Cursor cursor = db.query("Users", columns, selection, selectionArgs, null, null, null);
         String result = null;
 
-        if (cursor != null && cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
 
             result = cursor.getString(cursor.getColumnIndexOrThrow(COL_2));
             cursor.close();
