@@ -11,5 +11,25 @@ layout: default
     <p>{{ site.description }}</p>
     <p>{{ site.readME }}</p>
     <p>{{ site.link }}</p>
+    <div id="Enhancement1">Loading Enhancement1</div>
+
+    <script>
+        // Fetch the file path relative to index.html
+        fetch('Enhancement1.txt')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Insert the text into the container
+                document.getElementById('Enhancement1').textContent = data;
+            })
+            .catch(error => {
+                console.error('Error fetching the text file:', error);
+                document.getElementById('Enhancement1').textContent = 'Failed to load content.';
+            });
+    </script>
 </body>
 </html>
