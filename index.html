@@ -13,10 +13,15 @@ layout: default
     <p>{{ site.link }}</p>
     <h2>The first enhancment</h2>
     <div id="Enhancement1">Loading Enhancement1</div>
-
+    <h2>The second enhancment</h2>
+    <div id="Enhancement2">Loading Enhancement2</div>
+    <h2>The third enhancment</h2>
+    <div id="Enhancement3">Loading Enhancement3</div>
     <script>
-        // Fetch the file path relative to index.html
-        fetch('Enhancement_1.txt')
+        // Fetch the file path
+        async function loadTextFile(filePath, Id) {
+             
+        fetch('filePath')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -25,12 +30,15 @@ layout: default
             })
             .then(data => {
                 // Insert the text into the container
-                document.getElementById('Enhancement1').textContent = data;
+                document.getElementById(Id).textContent = data;
             })
             .catch(error => {
                 console.error('Error fetching the text file:', error);
-                document.getElementById('Enhancement1').textContent = 'Failed to load content.';
+                document.getElementById(Id).textContent = 'Failed to load content.';
             });
+        loadTextFile('Enhancement_1.txt', 'Enhancement1');
+        loadTextFile('Enhancement_2.txt', 'Enhancement2');
+        loadTextFile('Enhancement_3.txt', 'Enhancement3');
     </script>
 </body>
 </html>
