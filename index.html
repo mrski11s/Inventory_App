@@ -18,20 +18,20 @@ layout: default
     <h2>The third enhancment</h2>
     <div id='Enhancement3'>Loading Enhancement3</div>
     <script>
-        // Fetch the file path
         async function loadTextFile(filePath, Id) {
              try {
                 const response = await fetch('filePath');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                const data = await response.text();
-                document.getElementById(Id).textContent = data;
+                const text = await response.text();
+                document.getElementById(Id).textContent = text;
             }
             catch(error) {
                 console.error('Error fetching the text file:', error);
                 document.getElementById(Id).textContent = 'Failed to load content.';
-            });
+            }
+        }
         loadTextFile('Enhancement_1.txt', 'Enhancement1');
         loadTextFile('Enhancement_2.txt', 'Enhancement2');
         loadTextFile('Enhancement_3.txt', 'Enhancement3');
