@@ -12,16 +12,16 @@ layout: default
     <p>{{ site.readME }}</p>
     <p>{{ site.link }}</p>
     <h2>The first enhancment</h2>
-    <div id="Enhancement1">Loading Enhancement1</div>
+    <div id='Enhancement1'>Loading Enhancement1</div>
     <h2>The second enhancment</h2>
-    <div id="Enhancement2">Loading Enhancement2</div>
+    <div id='Enhancement2'>Loading Enhancement2</div>
     <h2>The third enhancment</h2>
-    <div id="Enhancement3">Loading Enhancement3</div>
+    <div id='Enhancement3'>Loading Enhancement3</div>
     <script>
         // Fetch the file path
         async function loadTextFile(filePath, Id) {
              
-        fetch('filePath')
+        await fetch('filePath')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
