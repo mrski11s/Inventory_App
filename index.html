@@ -5,6 +5,36 @@ layout: default
 <html>
 <head>
     <title>{{ site.title }}</title>
+     <style>
+        /* Centers the gallery wrapper on your web page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Container that handles alignment and wrap */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows images to drop to the next line on smaller screens */
+            gap: 20px;       /* Puts space between the images */
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Individual image styling */
+        .gallery-container img {
+            width: 300px;         /* Keeps all pictures uniform in width */
+            height: 200px;        /* Keeps all pictures uniform in height */
+            object-fit: cover;    /* Crops the image cleanly to fit dimensions without stretching */
+            border-radius: 8px;   /* Smooth rounded corners */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow look */
+        }
+    </style>
 </head>
 <body>
     <h1>{{ site.title }} self-assessment</h1>
@@ -16,7 +46,9 @@ layout: default
     <img src="old layout.png" alt="Old layout"><img src="new layout.png" alt="New layout">
     <div id='Enhancement1'>Loading Enhancement1</div>
     <h2>The Algorithms and Data Structure Enhancement</h2>
-    <img src="old table.png" alt="Old table"><img src="new table.png" alt="New table">
+    <div class="gallery-container">
+        <img src="old table.png" alt="Old table"><img src="new table.png" alt="New table">
+    </div>
     <div id='Enhancement2'>Loading Enhancement2</div>
     <h2>The Database Enhancement</h2>
     <img src="new login.png" alt="New layout">
