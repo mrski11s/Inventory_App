@@ -31,7 +31,8 @@ layout: default
 <body>
     <h1>{{ site.title }} self-assessment</h1>
     <p>{{ site.description2 }}</p>
-    <p>{{ site.Summary }}</p>
+    <div id='assessment'>Loading assessment</div>
+    
     <p>{{ site.link }}</p>
     <p>{{ site.link2 }}</p>
     <h2>The Software Design and Engineering Enhancement</h2>
@@ -67,6 +68,7 @@ layout: default
                 document.getElementById(Id).textContent = 'Failed to load content. ${error.message}';
             }
         }
+        loadTextFile('assessment.txt', 'assessment');
         loadTextFile('Enhancement_1.txt', 'Enhancement1');
         loadTextFile('Enhancement_2.txt', 'Enhancement2');
         loadTextFile('Enhancement_3.txt', 'Enhancement3');
