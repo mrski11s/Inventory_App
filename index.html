@@ -7,16 +7,8 @@ layout: default
     <title>{{ site.title }}</title>
      <style>
         
-        body {
-            
-            display: flex;
-            
-            
-            
-        }
-        
         /* Container that handles alignment and wrap */
-        .gallery-container {
+        .image_container {
             display: flex;
             flex-wrap: wrap; /* Allows images to drop to the next line on smaller screens */
                    /*justify-content: center; Puts space between the images gap: 20px;*/
@@ -25,7 +17,7 @@ layout: default
         }
 
         /* Individual image styling */
-        .gallery-container img {
+        .image_container img {
             width: 300px;         /* Keeps all pictures uniform in width */
             height: 600px;        /* Keeps all pictures uniform in height */
             object-fit: cover;   /*  Crops the image cleanly to fit dimensions without stretching */
@@ -46,7 +38,7 @@ layout: default
      
     <div id='Enhancement1'>Loading Enhancement1</div>
     <h2>The Algorithms and Data Structure Enhancement</h2>
-    <div class="gallery-container">
+    <div class="image_container">
         <img src="old table.png" alt="Old table"><img src="new table.png" alt="New table">
     </div>
     <div id='Enhancement2'>Loading Enhancement2</div>
